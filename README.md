@@ -1,2 +1,2 @@
 # Functional-Programming
-Functional programming examples in scheme
+Functional programming examples in scheme and Haskell
