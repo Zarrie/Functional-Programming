@@ -106,14 +106,17 @@
       #f))
 
 
-;                                ---Task 7--- test if given number is palindrome TO BE FIXED
+;                                ---Task 7--- test if given number is palindrome
 (define (palindrome? n)
   (iter n 0 (count-digits n)))
 
+(define (palindrome? n)
+  (eq-f-l n))
+
 ;                                auxiliary function for task 7
-(define (iter n first last)
-  (if (>= first last)
+(define (eq-f-l n)
+  (if (= n 0)
       #t
-      (if (not (cmp-first-last n first last))
-          #f))
-  (iter n (+ first 1) (- last 1)))
+      (if (= (quotient n (expt 10 (- (count-digits n) 1))) (remainder n 10))
+          (eq-f-l (quotient (remainder n (expt 10 (- (count-digits n) 1))) 10))
+          #f)))
