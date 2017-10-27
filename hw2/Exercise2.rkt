@@ -108,15 +108,8 @@
 
 ;                                ---Task 7--- test if given number is palindrome
 (define (palindrome? n)
-  (iter n 0 (count-digits n)))
-
-(define (palindrome? n)
-  (eq-f-l n))
-
-;                                auxiliary function for task 7
-(define (eq-f-l n)
   (if (= n 0)
       #t
       (if (= (quotient n (expt 10 (- (count-digits n) 1))) (remainder n 10))
-          (eq-f-l (quotient (remainder n (expt 10 (- (count-digits n) 1))) 10))
+          (palindrome? (quotient (remainder n (expt 10 (- (count-digits n) 1))) 10))
           #f)))
