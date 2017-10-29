@@ -41,7 +41,7 @@
         (helper (next tn))))
   (helper 1))
 
-;                                ---Task 3--- computes e^x by using Taylor series
+;                                ---Task 4--- computes e^x by using Taylor series
 
 (define (ex x)
   (define iterations 50)
