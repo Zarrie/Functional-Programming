@@ -7,4 +7,3 @@
 * [`(fib-iter n)`](exercise3.rkt) - n-тото число на Фибоначи итеративно. Обща схема за свеждане на [дървовидна рекурсия](https://mitpress.mit.edu/sicp/chapter1/node13.html) до итеративен процес.
 * [`(sqrt-iter n)`](exercise3.rkt) - изчисляване на корен квадратен по метода на Нютон
 * [`(ex x)`](exercise3.rkt) - изчисляване на e^x с ред на Тейлър
-* [`(my-cos x)`](exercise3.rkt) - изчисляване на cos с ред на Тейлър
