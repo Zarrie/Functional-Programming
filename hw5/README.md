@@ -1,10 +1,13 @@
 Разгледано на упражнението
 ==========================
 
-* [`(my reverse n)`](exercise5.rkt) - обръща цифрите на дадено число
-* [`(palindrome? n)`](exercise5.rkt) - проверка дали число е палиндром, чрез модифициран `my-reverse`
-* [`(substr m n)`](exercise5.rkt) - проверка дали `m` се съдържа в записа на `n`
-* [`(fib-iter n)`](exercise5.rkt) - n-тото число на Фибоначи итеративно. Обща схема за свеждане на [дървовидна рекурсия](https://mitpress.mit.edu/sicp/chapter1/node13.html) до итеративен процес.
-* [`(sqrt-iter n)`](exercise5.rkt) - изчисляване на корен квадратен по метода на Нютон
-* [`(ex x)`](exercise5.rkt) - изчисляване на e^x с ред на Тейлър
-* [`(my-cos x)`](exercise5.rkt) - изчисляване на cos с ред на Тейлър
+* Изграждане на абстракцията на акумулиращ процес
+
+Следват задачи, които трябва да се решат с `accumulate`:
+* [`(fact n)`](exercise5.rkt) - факториел
+* [`(pow x n)`](exercise5.rkt) - степенуване
+* [`(variation x n)`](exercise5.rkt) - вариации
+* [`(combination x n)`](exercise5.rkt) - комбинации
+* [`(exp x)`](exercise5.rkt) - изчисляване на e^x с ред на Тейлър
+* [`(sin x)`](exercise5.rkt) - изчисляване на sin(x) с ред на Тейлър
+* [`(sqrt x)`](exercise5.rkt) - коренуване по метода на Нютон
