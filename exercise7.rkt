@@ -1,0 +1,80 @@
+(define (member? el lst)
+  (cond
+    ((null? lst) #f)
+    ((= (car lst) el) #t)
+    (else (member? el (cdr lst)))))
+
+(define (my-len lst)
+  (if (null? lst)
+      0
+      (+ 1 (my-len (cdr lst)))))
+
+(define (nth lst n)
+  (if (= n 0)
+      (car lst)
+      (nth (cdr lst) (- n 1))))
+
+(define (my-append lst1 lst2)
+  (cond
+    ((null? lst1) lst2)
+    (else (cons (car lst1) (my-append (cdr lst1) lst2)))))
+
+(define (range start end)
+  (define (helper start end result)
+    (if (= start end)
+        (cons start result)
+        (helper start (- end 1) (cons end result))))
+  (helper start end '()))
+
+(define (my-reverse lst)
+  (define (helper lst res)
+    (if (null? lst)
+        res
+        (helper (cdr lst) (cons (car lst) res))))
+  (helper lst '()))
+
+(define (union lst1 lst2)
+  (define (helper lst1 lst2 res)
+    (if (not (null? lst1))
+        (if (not (member? (car lst1) res))
+            (helper (cdr lst1) lst2 (cons (car lst1) res))
+            (helper (cdr lst1) lst2 res))
+        (if (not (null? lst2))
+            (if (not (member? (car lst2) res))
+                (helper lst1 (cdr lst2) (cons (car lst2) res))
+                (helper lst1 (cdr lst2) res))
+            res)))
+  (helper lst1 lst2 '()))
+
+(define (intersection lst1 lst2)
+  (define (helper lst1 lst2 res)
+    (if (not (null? lst1))
+        (if (and (member? (car lst1) lst2) (not (member? (car lst1) res)))
+            (helper (cdr lst1) lst2 (cons (car lst1) res))
+            (helper (cdr lst1) lst2 res))
+        (if (not (null? lst2))
+            (if (and (member? (car lst2) lst1) (not (member? (car lst2) res)))
+                (helper lst1 (cdr lst2) (cons (car lst2) res))
+                (helper lst1 (cdr lst2) res))
+            res)))
+  (helper lst1 lst2 '()))
+
+(define (count-occurances lst1 lst2)
+  (define (eq-list? l1 l2)
+    (cond
+      ((or (and (null? l1) (not (null? l2))) (and (not (null? l1)) (null? l2))) #f)
+      ((and (null? l1) (null? l2)) #t)
+      (else (and (= (car l1) (car l2)) (eq-list? (cdr l1) (cdr l2))))))
+  (define (sub-list l len)
+    (define (helper l len res)
+      (if (= len 0)
+          res
+          (helper (cdr l) (- len 1) (cons (car l) res))))
+    (my-reverse (helper l len '())))
+  (define (helper l1 l2 res)
+    (if (< (my-len l1) (my-len l2))
+        res
+        (if (eq-list? (sub-list l1 (my-len l2)) l2)
+            (helper (cdr l1) l2 (+ 1 res))
+            (helper (cdr l1) l2 res))))
+  (helper lst1 lst2 0))
